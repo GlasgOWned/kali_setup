@@ -15,6 +15,7 @@ apt install -y \
     docker.io \
     exiftool \
     filezilla filezilla-common \
+    gdb \
     gobuster \
     golang \
     ipython3 \
