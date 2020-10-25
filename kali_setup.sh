@@ -20,6 +20,7 @@ apt install -y \
     golang \
     ipython3 \
     default-jdk \
+    jd-gui \
     jq \
     libreoffice \
     lolcat \
@@ -50,7 +51,7 @@ dpkg-reconfigure openssh-server
 
 
 #### Python packages
-python3 -m pip install awscli jupyter jupyterlab pwntools pymysql pyftpdlib termcolor yq
+python3 -m pip install awscli factordb-pycli jupyter jupyterlab pwntools pymysql pyftpdlib termcolor yq
 
 #### Ruby Gems
 gem install mdless
