@@ -28,6 +28,7 @@ apt install -y \
     lynx \
     mcrypt \
     npm \
+    oletools \
     pandoc \
     poppler-utils \
     python-pip \
