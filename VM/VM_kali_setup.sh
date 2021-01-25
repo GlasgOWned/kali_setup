@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# add additional user
+useradd -m glasgow
+passwd glasgow
+usermod -a -G sudo,vboxsf glasgow
+chsh -s /bin/bash glasgow
+
 apt-get clean
 apt-get update
 apt-get upgrade -y
@@ -51,19 +57,34 @@ python3 -m pip install awscli factordb-pycli jupyter jupyterlab pwntools pymysql
 #### Ruby Gems
 gem install mdless
 
+#### go packages
+go get github.com/ffuf/ffuf
+
+
 # Download Atom
 atom_deb="/tmp/atom-amd64.deb"
 wget -O $atom_deb https://atom.io/download/deb
-apt install $atom_deb -y
+dpkg -i $atom_deb
+# Install Atom's dependencies if they are missing
+apt-get -f install -y
+# typically need to rerun this step after fixing dependencies
+dpkg -i $atom_deb
 rm $atom_deb
 
-# update python to point to python3
-apt install python-is-python3
+# update python alias to point to python3
+unlink /usr/bin/python
+ln -s /usr/bin/python3 /usr/bin/python
+
+unlink /usr/bin/pip
+ln -s /usr/bin/pip3 /usr/bin/pip
+
 
 #### Install Google Chrome
 chrome_deb="/tmp/google-chrome-stable_current_amd64.deb"
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O $chrome_deb
-apt install $chrome_deb -y
+apt install -y gdebi
+gdebi $chrome_deb
+dpkg -i $chrome_deb
 rm $chrome_deb
 
 

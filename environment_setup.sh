@@ -14,6 +14,9 @@ svn checkout https://github.com/git/git/trunk/contrib/completion ~/.dotfiles/git
 git config --global user.name Glasgow
 git config --global user.email Glasgow@localhost
 
+#### go packages
+go get github.com/ffuf/ffuf
+
 #### Github
 # Python PTY backdoors
 git clone https://github.com/infodox/python-pty-shells.git ~/opt/python-pty-shells
